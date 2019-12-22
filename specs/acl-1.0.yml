@@ -56,6 +56,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Ret'
+  /clear:
+    get:
+      summary: 清除配置信息，恢复到默认配置
+      description:
+      responses:
+        '200':
+          description: 返回结果
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ret'
   /permissions:
     get:
       summary: 获取权限列表
@@ -236,7 +247,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
     put:
-      summary: 更新用户
+      summary: 更新用户, 如果用户不存在，则自动新建用户
       parameters:
         - name: id
           in: path
