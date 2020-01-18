@@ -1,11 +1,15 @@
 var swaggerUrls = [
   {
-    url: 'specs/sso-1.0.yml',
-    name: 'sso 1.0'
-  },
-  {
     url: 'specs/acl-1.0.yml',
     name: 'acl 1.0'
+  },
+  {
+    url: 'specs/bank-3.2.yml',
+    name: 'bank 3.2'
+  },
+  {
+    url: 'specs/sso-1.0.yml',
+    name: 'sso 1.0'
   },
   {
     url: 'specs/passport-2.0.yml',
