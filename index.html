@@ -38,10 +38,11 @@
     <script src="./config.js"> </script>
     <script>
     window.onload = function() {
+      
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
         urls: swaggerUrls,
-        dom_id: '#swagger-ui',
+        "dom_id": "#swagger-ui",
         deepLinking: true,
         presets: [
           SwaggerUIBundle.presets.apis,
@@ -50,9 +51,12 @@
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
-        layout: "StandaloneLayout"
+        layout: "StandaloneLayout",
       })
+      
+      
       // End Swagger UI call region
+
 
       window.ui = ui
     }
