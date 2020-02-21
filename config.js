@@ -23,4 +23,8 @@ var swaggerUrls = [
     url: 'specs/sms-1.0.yml',
     name: 'sms 1.0'
   },
+  {
+    url: 'specs/userbind-1.0.yml',
+    name: 'userbind 1.0'
+  },
 ]
