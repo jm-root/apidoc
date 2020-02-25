@@ -12,12 +12,12 @@ var swaggerUrls = [
     name: 'sso 1.0'
   },
   {
-    url: 'specs/passport-2.0.yml',
-    name: 'passport 2.0'
+    url: 'specs/passport-2.1.yml',
+    name: 'passport 2.1'
   },
   {
-    url: 'specs/passport-mobile-2.0.yml',
-    name: 'passport-mobile 2.0'
+    url: 'specs/passport-2.0.yml',
+    name: 'passport 2.0'
   },
   {
     url: 'specs/sms-1.0.yml',
