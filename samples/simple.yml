@@ -1,0 +1,149 @@
+# 约定
+# schema定义名称大写字母开头代表一个对象类型，小写字母开头代表一个基本类型
+# 例如 Role表示{id:'guest'} role表示'guest'
+# Roles表示[{id:'guest'}] roles表示['guest']
+openapi: 3.0.0
+servers:
+  - url: 'https://api.jamma.cn/acl'
+  - url: 'http://gateway.l.jamma.cn/acl'
+  - url: 'http://api.l.jamma.cn/acl'
+  - url: 'http://localhost:3000/acl'
+info:
+  version: 1.0.0
+  title: acl
+  description: acl api
+  contact:
+    name: jeff
+    url: 'https://github.com/jammacn'
+    email: jeff@jamma.cn
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: common
+    description: 常用接口
+externalDocs:
+  url: 'https://github.com/jm-root/acl'
+paths:
+  /:
+    get:
+      summary: 版本信息
+      description: 返回当前服务的版本信息，其中status表示0未准备好 1已准备好
+      responses:
+        '200':
+          $ref: '#/components/responses/Help'
+        default:
+          $ref: '#/components/responses/Err'
+      tags:
+        - common
+components:
+  schemas:
+    List:
+      type: object
+      description: 列表
+      properties:
+        rows:
+          type: array
+          items:
+            type: object
+      required:
+        - rows
+    Err:
+      type: object
+      properties:
+        err:
+          type: integer
+          format: int32
+          example: 1
+          description: 错误编码
+        msg:
+          type: string
+          example: Fail
+          description: 错误信息
+        status:
+          type: integer
+          format: int32
+          example: 500
+          description: 状态码
+    BoolRet:
+      type: object
+      properties:
+        ret:
+          type: boolean
+          format: int32
+          example: true
+    Ret:
+      type: object
+      properties:
+        ret:
+          type: integer
+          format: int32
+          example: 0
+          description: 0 失败 1 成功
+    Help:
+      type: object
+      description: 版本信息
+      properties:
+        name:
+          type: string
+          example: acl
+        title:
+          type: string
+          example: 查
+          description: 标题
+  parameters:
+    id:
+      name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    fields:
+      name: fields
+      description: 指定需要返回的字段，默认全部返回
+      in: query
+      schema:
+        type: array
+        items:
+          type: string
+      examples:
+        all:
+          $ref: '#/components/examples/allfields'
+        fields:
+          $ref: '#/components/examples/fields'
+  responses:
+    Err:
+      description: 返回错误
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Err'
+    BoolRet:
+      description: 返回Boolean结果
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BoolRet'
+    Ret:
+      description: 返回结果
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Ret'
+    Help:
+      description: 返回版本信息
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Help'
+  examples:
+    id:
+      summary: 用户
+      value: '5d9d5af874050000c7006b43'
+    allfields:
+      summary: 所有字段
+      value: []
+    fields:
+      summary: 字段id
+      value: ['id']
