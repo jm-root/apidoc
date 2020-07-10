@@ -36,4 +36,12 @@ var swaggerUrls = [
     url: 'specs/passport-2.0.yml',
     name: 'passport 2.0'
   },
+  {
+    url: 'specs/wechat-2.0.yml',
+    name: 'wechat 2.0'
+  },
+  {
+    url: 'specs/weapp-1.0.yml',
+    name: 'weapp 1.0'
+  },
 ]
